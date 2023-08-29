@@ -1,0 +1,93 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+{% block content %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap4/css/bootstrap.min.css' %}">
+    
+    <style>
+
+        form{
+           margin: 50px; 
+          
+        }
+        .btn{
+          border-radius: 10px;
+        }
+    </style>
+  </head>
+  <body>
+ 
+
+
+
+<br>
+<div class="container bg-dark py-2 px-4 rounded ">
+  <h3 style="text-align: center;" class="text-warning font-weight-bold my-2">Student Signup Form</h3>
+<form method="POST" autocomplete="off" enctype="multipart/form-data" class="was-validated">
+    {% csrf_token %}
+
+    <div class="form-row">
+        <div class="form-group col-md-5 mx-5">
+          <label for="first_name" class="text-white font-weight-bold">First Name</label>
+          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
+        </div>
+        <div class="form-group col-md-5 mx-4">
+          <label for="last_name" class="text-white font-weight-bold">Last Name</label>
+          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
+        </div>
+      </div>
+
+      
+      <div class="form-row">
+        <div class="form-group col-md-5 mx-5">
+          <label for="username" class="text-white font-weight-bold">User Name</label>
+          {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="User Name" %}
+        </div>
+        <div class="form-group col-md-5 mx-4">
+          <label for="inputPassword4" class="text-white font-weight-bold ">Password</label>
+          {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="Password" %}
+        </div>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-5 mx-5">
+          <label for="mobile" class="text-white font-weight-bold">Contact</label>
+          {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Contact Number" %}
+        </div>
+        <div class="form-group col-md-5 mx-4">
+          <label for="email" class="text-white font-weight-bold">Email</label>
+          {% render_field studentForm.email|attr:'required:true'  class="form-control" placeholder="Enter Your Email " %}
+        </div>
+      </div>
+
+      
+      <div class="form-row">
+        <div class="form-group col-md-5 mx-5">
+          <label for="profile_pic " class="text-white font-weight-bold" >Profile Picture</label>
+          {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+        </div>
+        <div class="form-group col-md-5 mx-4">
+          <label for="address" class="text-white font-weight-bold">Address</label>
+          {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
+        </div>
+        
+      </div>
+
+      <div class="container w-50 text-center my-2 ">
+    <button type="submit" class="btn w-50 btn-primary rounded-pill py-2 px-5 my-3 font-weight-bold mx-5" >Sign Up</button>
+    </div>
+    <!--<button href="{% url 'home' %}" class="btn btn-primary rounded-pill py-2 px-5 my-4 font-weight-bold mx-1" > << Back </button>-->
+  </form>
+</div>
+
+
+
+{% endblock content %}
+  </body>
+
+</html>
